@@ -325,27 +325,32 @@
 
     // Fail function
     function fail_func(xhr) {
-        var errorText = "You have already submitted your RSVP.";
+    let errorText = 'Submission failed. Please try again.';
 
-        // If Laravel returns validation errors, show the first one
-        if(xhr.responseJSON && xhr.responseJSON.errors) {
-            var errors = xhr.responseJSON.errors;
-            errorText = Object.values(errors)[0][0]; // Get first error message
-        } else if(xhr.responseText.message) {
-            errorText = xhr.responseText.message;
-        }
-
-        message
-            .fadeIn()
-            .removeClass('alert-success')
-            .addClass('alert-danger')
-            .text(errorText);
-
-        // Hide after 2 seconds
-        setTimeout(function() {
-            message.fadeOut();
-        }, 2000);
+    // CSRF token error
+    if (xhr.status === 419) {
+        errorText = 'Session expired. Please refresh the page and try again.';
     }
+    // Laravel validation error (422)
+    else if (xhr.status === 422 && xhr.responseJSON && xhr.responseJSON.errors) {
+        errorText = Object.values(xhr.responseJSON.errors)[0][0];
+    }
+    // Any backend message
+    else if (xhr.responseJSON && xhr.responseJSON.message) {
+        errorText = xhr.responseJSON.message;
+    }
+
+    message
+        .fadeIn()
+        .removeClass('alert-success')
+        .addClass('alert-danger')
+        .text(errorText);
+
+    setTimeout(function () {
+        message.fadeOut();
+    }, 3000);
+}
+
 
     // Form submit via AJAX
     form.submit(function(e) {
