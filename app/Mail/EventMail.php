@@ -110,7 +110,7 @@ class EventMail extends Mailable
         <div class='container'>
             <h1>{$this->title}</h1>
             <p>{$this->message}</p>
-            <a href='#' class='button'>Join Live</a>
+            <a href='/' class='button'>Join Live</a>
             <p class='footer'>You are receiving this email because you signed up for our wedding updates.</p>
         </div>
     </body>

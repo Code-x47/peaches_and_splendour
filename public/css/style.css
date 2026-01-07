@@ -998,6 +998,47 @@ body.offcanvason .oliven-nav-toggle {
   position: relative;
   overflow: hidden;
 }
+/* .bridegroom .imgwify {
+
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  overflow: hidden;
+  float: left;
+  object-fit: cover;
+} */
+
+.bridegroom .imgwify {
+  width: 300px;           /* smaller, fits nicely next to text */
+  height: 300px;
+ 
+  border-radius: 50%;     /* keeps the circle */
+  overflow: hidden;       /* hides overflow */
+  float: left;            /* keeps text on the right */
+  margin-right: 20px;     /* space between image and text */
+}
+
+.bridegroom .imgwify img {
+  width: 100%;            /* fill container width */
+  height: 100%;           /* fill container height */
+  object-fit: cover;      /* crops/scales image to fit container */
+  display: block;         /* removes gaps under image */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .bridegroom .imgwify {
+    width: 150px;
+    height: 150px;
+    margin-right: 15px;
+  }
+}
+
+
+
+
+
+
 .bridegroom .img {
   width: 140px;
   height: 140px;
@@ -1005,6 +1046,11 @@ body.offcanvason .oliven-nav-toggle {
   overflow: hidden;
   float: left;
 }
+
+
+
+
+
 .bridegroom .info {
   margin-left: 160px;
 }
@@ -1240,6 +1286,16 @@ body.offcanvason .oliven-nav-toggle {
     overflow: hidden;
     float: left;
 }
+
+
+
+.friends .imgema img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   
+    object-position: center;
+}
+
 .friends .info {
     margin-left: 160px;
 }
@@ -2141,11 +2197,20 @@ body.offcanvason .oliven-nav-toggle {
 
 
 /* Smooth placeholder animation */
-.animate-love {
+/* .animate-love {
   animation: loveFloat 3s ease-in-out infinite;
   will-change: transform, opacity;
   transform: translateZ(0);
+} */
+
+
+.animate-love {
+  animation: loveFloat 5s ease-in-out infinite;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
+
+
 
 @keyframes loveFloat {
   0% {
@@ -2244,3 +2309,26 @@ body.offcanvason .oliven-nav-toggle {
     margin-top: 8px;
 }
 
+/*Added*/
+/* .gallery-img {
+    height: 320px;
+    overflow: hidden;
+}
+
+.gallery-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+
+
+/* .gallery-img {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.gallery-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */

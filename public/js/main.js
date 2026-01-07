@@ -234,6 +234,29 @@
         }), !1
     })
 });
+
+// $(window).on("load", function () {
+//     var $grid = $(".gallery-filter");
+
+//     $grid.imagesLoaded(function () {
+//         $grid.isotope({
+//             itemSelector: ".gallery-item",
+//             layoutMode: "masonry",
+//             transitionDuration: "0.4s"
+//         });
+//     });
+
+//     $("#gallery-filter a").on("click", function (e) {
+//         e.preventDefault();
+//         var filterValue = $(this).attr("data-filter");
+
+//         $("#gallery-filter a").removeClass("active");
+//         $(this).addClass("active");
+
+//         $grid.isotope({ filter: filterValue });
+//     });
+// });
+
     
     // Magnific Popup
     $(".img-zoom").magnificPopup({

@@ -253,6 +253,130 @@
             }
         }
 
+
+       
+/* ===== Enhanced Continuous Marquee Slider ===== */
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #bd945a 0%, #d4a96c 50%, #bd945a 100%);
+  padding: 20px 0;
+  box-shadow: 0 4px 15px rgba(189, 148, 90, 0.3);
+  border-radius: 12px;
+}
+
+/* Decorative shine effect */
+.marquee::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shine 3s infinite;
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marqueeScroll 25s linear infinite;
+  align-items: center;
+}
+
+.marquee__item {
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 12px 50px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+/* Separator between items */
+.marquee__item::after {
+  content: '✦';
+  position: absolute;
+  right: 20px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+}
+
+.marquee__item:last-child::after {
+  display: none;
+}
+
+/* Pause animation on hover with smooth transition */
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+/* Smooth scroll animation */
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Shine effect animation */
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 100%;
+  }
+}
+
+/* ===== Responsive Design ===== */
+@media screen and (max-width: 768px) {
+  .marquee {
+    padding: 15px 0;
+    border-radius: 8px;
+  }
+  
+  .marquee__item {
+    font-size: 19px;
+    padding: 10px 35px;
+  }
+  
+  .marquee__item::after {
+    right: 20px;
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .marquee {
+    padding: 12px 0;
+    border-radius: 6px;
+  }
+  
+  .marquee__item {
+    font-size: 17px;
+    padding: 8px 25px;
+  }
+  
+  .marquee__track {
+    animation: marqueeScroll 20s linear infinite;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .marquee__item {
+    font-size: 15px;
+    padding: 8px 20px;
+  }
+}
+
     </style>
 </head>
 <body>
@@ -273,7 +397,7 @@
             <div class="oliven-logo">
                 <a href="index-2.html">
                     <img src="images/logo.png" alt="">
-                    <span>Mma <small>Weds</small> ChukwuEbuka</span>
+                    <span>Idimma <small>Weds</small> ChukwuEbuka</span>
                     <h6>14.2.2026</h6>
                 </a>
             </div>
@@ -289,12 +413,12 @@
                     <li><a href="#whenwhere">When & Where</a></li>
                     <li><a href="#rsvp">R.S.V.P</a></li>
                     <li><a href="#gift">Gift Registry</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <!--<li><a href="#">Blog</a></li> -->
                 </ul>
             </nav>
             <!-- Sidebar Footer -->
             <div class="footer1"> <span class="separator"></span>
-                <p>Mma weds Chukwuebuka<br />14 February 2026, Enugu State, Nigeria</p>
+                <p>Idimma weds Chukwuebuka<br />14 February 2026, Enugu State, Nigeria</p>
                 <div class="oliven-logo">
                 <a href="index-2.html">
                     <img src="images/logo.png" alt="">
@@ -321,11 +445,11 @@
         <!-- Content Section -->
         <div id="oliven-main">
             <!-- Header & Slider -->
-            <header id="home" class="header valign bg-img parallaxie" data-background="images/story2.jpg">
+            <header id="home" class="header valign bg-img parallaxie" data-background="images/pre4_hero.webp">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center caption">
-                            <h1 class="animate-box" data-animate-effect="fadeInUp">Mma & Chukwuebuka</h1>
+                            <h1 class="animate-box" data-animate-effect="fadeInUp">Idimma & Chukwuebuka</h1>
                             <h5 class="animate-box" data-animate-effect="fadeInUp">14 February, 2026 –Enugu State, Nigeria</h5> 
                         </div>
                     </div>
@@ -369,10 +493,10 @@
                     <div class="row mb-60">
                         <div class="col-md-6">
                             <div class="item toright mb-30 animate-box" data-animate-effect="fadeInLeft">
-                                <div class="img"> <img src="images/Idimma1.jpg" alt=""> </div>
+                                <div class="img imgwify"> <img src="images/profile.png" alt=""> </div>
                                 <div class="info valign">
                                     <div class="full-width">
-                                        <h6>Mma Godsfavour <i class="ti-heart"></i></h6> <span>The Bride</span>
+                                        <h6>Idimma Godsfavour <i class="ti-heart"></i></h6> <span>The Bride</span>
                                         <p>A woman of beauty, purpose, and compassion, she embodies love in its purest form and steps into forever with confidence and grace.</p>
                                         <div class="social">
                                             <div class="full-width">
@@ -484,9 +608,10 @@
                                     <div class="img"> <img src="images/friends/daby.jpg" alt=""> </div>
                                     <div class="info valign">
                                         <div class="full-width">
-                                            <h6>Dabby</h6><span>Bridesmaids</span>
-                                            <p>Their friends have filled their journey with laughter, support, and unforgettable memories,
-                                                 standing by their side through every step of love and life.
+                                            <h6>Daby Precious</h6><span>Chief Bridesmaids</span>
+                                            <p>
+                                                These wonderful friends have stood by the bride and groom with love, laughter, and unwavering support. 
+                                                 We are grateful to celebrate this special day with them.
                                             </p>
                                         </div>
                                     </div>
@@ -495,58 +620,83 @@
                                     <div class="img"> <img src="images/friends/nomso.jpg" alt=""> </div>
                                     <div class="info valign">
                                         <div class="full-width">
-                                            <h6>Chukwunomso Ibeh</h6><span>Groomsmen</span>
+                                            <h6>Chukwunomso Ibeh</h6><span>Best Man</span>
                                             <p>
-                                                 Their friends have filled their journey with laughter, support, and unforgettable memories,
-                                                 standing by their side through every step of love and life.
+                                                These wonderful friends have stood by the bride and groom with love, laughter, and unwavering support. 
+                                                 We are grateful to celebrate this special day with them.
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <div class="img"> <img src="images/friends/wfrnd2.jpeg" alt=""> </div>
+                                    <div class="img"> <img src="images/friends/frnd6.jpg" alt=""> </div>
                                     <div class="info valign">
                                         <div class="full-width">
-                                            <h6>Vanessa Brown</h6><span>Bridesmaids</span>
+                                            <h6>Chinaza Precious</h6><span>Bridesmaids</span>
                                             <p>
-                                                 Their friends have filled their journey with laughter, support, and unforgettable memories,
-                                                 standing by their side through every step of love and life.
+                                                  These wonderful friends have stood by the bride and groom with love, laughter, and unwavering support. 
+                                                 We are grateful to celebrate this special day with them.
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <div class="img"> <img src="images/friends/frnd1.jpeg" alt=""> </div>
+                                    <div class="img imgema"> <img src="images/friends/frnd7.webp" alt=""> </div>
                                     <div class="info valign">
                                         <div class="full-width">
-                                            <h6>Matthew Brown</h6><span>Groomsmen</span>
+                                            <h6>Emmanuel Chimezie</h6><span>Groomsmen</span>
                                               <p>
-                                                 Their friends have filled their journey with laughter, support, and unforgettable memories,
-                                                 standing by their side through every step of love and life.
+                                                 These wonderful friends have stood by the bride and groom with love, laughter, and unwavering support. 
+                                                 We are grateful to celebrate this special day with them.
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <div class="img"> <img src="images/friends/wfrnd1.jpeg" alt=""> </div>
+                                    <div class="img"> <img src="images/friends/frnd8.jpg" alt=""> </div>
                                     <div class="info valign">
                                         <div class="full-width">
-                                            <h6>Fredia Halle</h6><span>Bridesmaids</span>
+                                            <h6>Precious Nnamani</h6><span>Bridesmaids</span>
                                               <p>
-                                                 Their friends have filled their journey with laughter, support, and unforgettable memories,
-                                                 standing by their side through every step of love and life.
+                                                   These wonderful friends have stood by the bride and groom with love, laughter, and unwavering support. 
+                                                 We are grateful to celebrate this special day with them.
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <div class="img"> <img src="images/friends/frnd3.webp" alt=""> </div>
+                                    <div class="img"> <img src="images/friends/frnd4.jpg" alt=""> </div>
                                     <div class="info valign">
                                         <div class="full-width">
-                                            <h6>Pablo Dante</h6><span>Groomsmen</span>
+                                            <h6>Daniel Chimdindu</h6><span>Groomsmen</span>
                                               <p>
-                                                 Their friends have filled their journey with laughter, support, and unforgettable memories,
-                                                 standing by their side through every step of love and life.
+                                                   These wonderful friends have stood by the bride and groom with love, laughter, and unwavering support. 
+                                                 We are grateful to celebrate this special day with them.
+                                             </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="img"> <img src="images/friends/frnd9.jpg" alt=""> </div>
+                                    <div class="info valign">
+                                        <div class="full-width">
+                                            <h6>Ugwuoke Abigail</h6><span>Bridesmaids</span>
+                                              <p>
+                                                  These wonderful friends have stood by the bride and groom with love, laughter, and unwavering support. 
+                                                 We are grateful to celebrate this special day with them.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img"> <img src="images/friends/frnd5.jpg" alt=""> </div>
+                                    <div class="info valign">
+                                        <div class="full-width">
+                                            <h6>Joshua Jachimma</h6><span>Groomsmen</span>
+                                              <p>
+                                                These wonderful friends have stood by the bride and groom with love, laughter, and unwavering support. 
+                                                 We are grateful to celebrate this special day with them.
                                              </p>
                                         </div>
                                     </div>
@@ -614,7 +764,7 @@
                 </div>
             </div>
             <!-- Gallery -->
-            <div id="gallery" class="section-padding">
+                <div id="gallery" class="section-padding">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 mb-30"> 
@@ -701,9 +851,9 @@
 
 
                         <div class="col-md-4 gallery-item prewedding">
-                            <a href="images/gallery/img3.jpg" class="img-zoom">
+                            <a href="images/gallery/pre7.webp" class="img-zoom">
                                 <div class="gallery-box">
-                                    <div class="gallery-img"> <img src="images/img3.jpg" class="img-fluid mx-auto d-block" alt=""> </div>
+                                    <div class="gallery-img"> <img src="images/pre7.webp" class="img-fluid mx-auto d-block" alt=""> </div>
                                     <div class="gallery-detail">
                                         <h4 class="mb-0">Pre-Wedding</h4> </div>
                                 </div>
@@ -719,9 +869,9 @@
                             </a>
                         </div> -->
                         <div class="col-md-4 gallery-item prewedding">
-                            <a href="images/gallery/story2.jpg" class="img-zoom">
+                            <a href="images/gallery/pre10.webp" class="img-zoom">
                                 <div class="gallery-box">
-                                    <div class="gallery-img"> <img src="images/story2.jpg" class="img-fluid mx-auto d-block" alt=""> </div>
+                                    <div class="gallery-img"> <img src="images/pre10.webp" class="img-fluid mx-auto d-block" alt=""> </div>
                                     <div class="gallery-detail">
                                         <h4 class="mb-0">Pre-Wedding</h4> </div>
                                 </div>
@@ -782,9 +932,9 @@
                         </div> -->
 
                         <div class="col-md-4 gallery-item prewedding">
-                            <a href="images/gallery/pre10.webp" class="img-zoom">
+                            <a href="images/gallery/story2.jpg" class="img-zoom">
                                 <div class="gallery-box">
-                                    <div class="gallery-img"> <img src="images/pre10.webp" class="img-fluid mx-auto d-block" alt=""> </div>
+                                    <div class="gallery-img"> <img src="images/story2.jpg" class="img-fluid mx-auto d-block" alt=""> </div>
                                     <div class="gallery-detail">
                                         <h4 class="mb-0">Pre-Wedding</h4> 
                                     </div>
@@ -828,6 +978,7 @@
                     </div>
                 </div>
             </div>
+            
             <!-- When & Where -->
             <div id="whenwhere" class="whenwhere section-padding bg-pink">
                 <div class="container">
@@ -842,6 +993,10 @@
                                     <div class="whenwhere-img"> <img src="images/whenwhere/trads.jpeg" alt=""></div>
                                     <div class="content">
                                         <h5>Traditional Wedding</h5>
+                                         <p>
+                                            <i class="ti-calendar"></i>
+                                            <span>6th February, 2026</span>
+                                        </p>
                                         <p><i class="ti-location-pin"></i> SURV.Tony Aguguesi's compound, Aguguesi Family in Umuomeke Ubahaibi Ofeahia Autonomous Community, Ibiasoegbe, Oru West LGA, Imo State.</p>
                                         <p><i class="ti-time"></i> <span>10:00am prompt</span></p>
 
@@ -852,6 +1007,10 @@
                                     <div class="whenwhere-img"> <img src="images/whenwhere/3.jpg" alt=""></div>
                                     <div class="content">
                                         <h5>Church Wedding</h5>
+                                        <p>
+                                            <i class="ti-calendar"></i>
+                                            <span>14th February, 2026</span>
+                                        </p>
                                         <p><i class="ti-location-pin"></i> ST. ANDREW ANGLICAN CHURCH Hillview Trans-Ekulu Enugu</p>
                                         <p><i class="ti-time"></i> <span>10:00am</span></p>
 
@@ -862,6 +1021,10 @@
                                     <div class="whenwhere-img"> <img src="images/whenwhere/1.jpg" alt=""></div>
                                     <div class="content">
                                         <h5>Reception</h5>
+                                        <p>
+                                            <i class="ti-calendar"></i>
+                                            <span>14th February, 2026</span>
+                                        </p>
                                         <p><i class="ti-direction-alt"></i>Filbon Hotel, Chime Avenue New Haven Enugu</p>
 
                                         <p><i class="ti-time"></i> <span>1:00pm</span></p>
@@ -900,7 +1063,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input name="phone" id="phone" type="text" class="form-control" placeholder="WhatsApp Number" required> </div>
+                                        <input name="phone" id="phone" type="text" class="form-control" placeholder="Phone Number" required> </div>
                                 </div>
                                 
                                 <div class="col-md-12">
@@ -915,7 +1078,50 @@
                 </div>
             </div>
             
-           
+
+
+
+             <!-- Gift Registry -->
+            <div id="gift" class="gift-section gift">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 mb-30">
+                            <br> <span class="oliven-title-meta">Gift</span>
+                            <h2 class="oliven-title">Gift Registry</h2> 
+                        </div>
+
+                    <div class="marquee">
+                            <div class="marquee__track">
+                                <!-- ORIGINAL CONTENT -->
+                                <div class="marquee__item">
+                                Account Name: Aguguesi Godsfavour Idimmachukwu
+                                </div>
+                                <div class="marquee__item">
+                                Account Number: 1233570212
+                                </div>
+                                <div class="marquee__item">
+                                Bank: Access Bank
+                                </div>
+
+                                <!-- DUPLICATE CONTENT (IMPORTANT) -->
+                                <div class="marquee__item">
+                                Account Name: Aguguesi Godsfavour Idimmachukwu
+                                </div>
+                                <div class="marquee__item">
+                                Account Number: 1233570212
+                                </div>
+                                <div class="marquee__item">
+                                Bank: Access Bank
+                                </div>
+                        </div>
+                </div>
+
+
+
+
+                  </div>
+                </div>        
+            </div>   
         
             <!-- Footer -->
             <div class="footer2">
@@ -923,12 +1129,12 @@
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <h2>
-                                <a href="index-2.html"><img src="images/logo.png" alt=""><span>Dimma <small>&</small> Chukwuebuka</span></a>
+                                <a href="index-2.html"><img src="images/logo.png" alt=""><span>Idimma <small>&</small> Chukwuebuka</span></a>
                             </h2>
                             <p class="copyright">February 14, 2026 – Enugu State, Nigeria</p>
                         </div>
                          <div class="col-md-12 text-center" style="margin-top: 60px;">
-                            <p>© 2026 Dimma & ChukwuEbuka. All Rights Reserved.</p>
+                            <p>© 2026 Idimma & ChukwuEbuka. All Rights Reserved.</p>
                             <h2>
                                 <a href="#"><span style="color: #bd945a;">Designed <small>& Developed By</small> John~Doxzy</span></a>
                             </h2>
@@ -953,6 +1159,8 @@
             
                
         </div>
+        <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+
         <!-- jQuery -->
         <script src="js/jquery.min.js"></script>
         <script src="js/modernizr-2.6.2.min.js"></script>

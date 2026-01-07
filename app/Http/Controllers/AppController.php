@@ -68,11 +68,12 @@ class AppController extends Controller
     }
 
 
-    public function SendUpdate() {
+    public function SendUpdate(Request $request) {
         $invitees = Invitee::get();
-        
+        // "Hello $invite->name We are excited to announce that our wedding will take place on February 14, 2026. 
+        // Please mark your calendar and stay tuned—you will be receiving more updates from us!"
         foreach($invitees As $invite) {
-            Mail::to($invite['email'])->send(new EventMail('Wedding Update 🎉', "Hello $invite->name We are excited to announce that our wedding will take place on February 14, 2026. Please mark your calendar and stay tuned—you will be receiving more updates from us!"));
+            Mail::to($invite['email'])->send(new EventMail("{$request->subject} 🎉","Hello {$invite->name}. {$request->message}"));
         }
 
         return response()->json([
@@ -80,5 +81,11 @@ class AppController extends Controller
           ]);
        
 
+    }
+
+    public function Dashboard() {
+        $guests = Invitee::paginate(10);
+        //$countguests = Invitee::count();
+        return view('dashboard',compact('guests'));
     }
 }
