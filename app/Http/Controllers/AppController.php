@@ -9,34 +9,24 @@ use Illuminate\Support\Facades\Mail;
 
 class AppController extends Controller
 {
-    public function SaveEmail(Request $request)
+ 
+   public function SaveEmail(Request $request)
 {
-    $user = $request->validate([
-        "name" => "required",
-        "email" => "required|email",
-        "phone" => "required"
+    $data = $request->validate([
+        'name'  => 'required|string',
+        'email' => 'required|email|unique:invitees,email',
+        'phone' => 'required'
     ]);
 
-    // Trim inputs
-    $user = array_map('trim', $user);
-
-    // Case-insensitive email check
-    $existing = Invitee::whereRaw('LOWER(email) = ?', [strtolower($user['email'])])
-                        ->first();
-
-    if ($existing) {
-        return response()->json([
-            'message' => 'You have already submitted your RSVP.'
-        ], 409);
-    }
-
-    $data = Invitee::create($user);
+    $invitee = Invitee::create($data);
 
     return response()->json([
         'message' => 'Thank you! Your RSVP has been successfully submitted.',
-        'data' => $data
-    ]);
+        'data' => $invitee
+    ], 200);
 }
+
+
     public function Invitees() {
         $invitees = Invitee::get();
         return response()->json($invitees);
